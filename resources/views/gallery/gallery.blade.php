@@ -31,18 +31,18 @@
         		@endif
         </div>
 	
-	<div class="row">
-        <div class="mx-center">
+	<div class="container ">
+        <div class="container col-md-3">
 			<form class="form" method="post" action="{{url('gallery/save')}}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				
 					<div class="form-group">
 						<input type="text" name="gallery_name"
 						id="gallery_name" placeholder="Nazwa galerii"
-						class="form-control" required />
+						class="form-control text-center" required />
 					</div>
 					
-					<button class="btn btn-primary">     Zapisz     </button>
+					<button class="btn btn-primary col-md ">     Zapisz     </button>
 			</form>
         </div>
     </div>
