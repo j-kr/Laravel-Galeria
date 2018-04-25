@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,8 +15,15 @@
     <title>My Gallery</title>
 </head>
 <body>
-
     <div class="container">
+        @if(Session::has('flash_message'))
+        	<div class="alert alert-success">{{Session::get('flash_message')}}</div>
+        @endif
+
+        @if(Session::has('flash_error'))
+        	<div class="alert alert-danger">{{Session::get('flash_error')}}</div>
+        @endif
+
         @yield('content')
     </div>
 

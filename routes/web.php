@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -20,7 +20,6 @@ Route::get('gallery/list', 'GalleryController@viewGalleryList');
 Route::post('gallery/save', 'GalleryController@saveGallery');
 Route::get('gallery/view/{id}', 'GalleryController@viewGalleryPics');
 Route::post('image/do-upload', 'GalleryController@doImageUpload');
+Auth::routes();
 
-Route::get('/siema', function () {
-    return ('siemandero');
-});
+Route::get('/home', 'HomeController@index')->name('home');

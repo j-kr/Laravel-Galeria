@@ -1,6 +1,7 @@
 @extends('master')
 
-@section('content')
+@section('content1')
+<br>
 	<div class="row">
 		<div class="col-md-12">
 			<h1>{{$gallery->name}}</h1>

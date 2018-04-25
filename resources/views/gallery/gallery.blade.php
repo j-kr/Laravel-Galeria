@@ -1,16 +1,19 @@
 @extends('master')
 
-@section('content')
+@section('content1')
     <div class="row">
         <div class="col-md-12">
+            <br>
         <h1>Moje galerie</h1>
         </div>
     </div>
 	
 	<div class="row">
         <div class="col-md-12">
+
         	@if ($galleries->count() > 0 )
-        		<table class="table table-striped table-bordered ">
+        		
+                <table class="table table-striped table-bordered ">
         			<thead>
 
         				<tr class="info">
@@ -33,6 +36,8 @@
 	
 	<div class="container ">
         <div class="container col-md-3">
+
+
 			<form class="form" method="post" action="{{url('gallery/save')}}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				

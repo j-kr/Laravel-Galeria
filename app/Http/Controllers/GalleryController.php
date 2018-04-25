@@ -16,6 +16,7 @@ class GalleryController extends Controller
 
     public function saveGallery(Request $request)
     {
+        
         $gallery = new Gallery;
 
         $gallery->name = $request->input('gallery_name');
