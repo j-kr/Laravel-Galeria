@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('master')
 
 @section('content1')
 <div class="container">
@@ -44,7 +44,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Zapamiętaj') }}
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Zapamiętaj') }}
                                     </label>
                                 </div>
                             </div>
