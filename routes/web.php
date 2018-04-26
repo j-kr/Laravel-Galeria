@@ -23,3 +23,4 @@ Route::post('image/do-upload', 'GalleryController@doImageUpload');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
