@@ -53,5 +53,7 @@ class GalleryController extends Controller
             'file_path' => 'gallery/images/' . $filename,
             'created_by' => Auth::user()->id,
         ]);
+
+        return $image;
     }
 }

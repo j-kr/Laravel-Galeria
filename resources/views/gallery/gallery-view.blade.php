@@ -1,25 +1,6 @@
 @extends('master')
 
 @section('content1')
-<style type="text/css">
-	#gallery-images img {
-		width: 240px;
-		height: 160px;
-		border: 2px solid black;
-		margin-bottom: 10px;
-	}
-	#gallery-images ul {
-		margin: 0;
-		padding: 0;
-	}
-	#gallery-images li {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		float: left;
-		padding-right: 10px;
-	}
-</style>
 
 
 
@@ -36,7 +17,7 @@
 				<ul>
 					@foreach ($gallery->images as $image)
 					<li>
-						<a href="{{ url($image->file_path) }}" target="_blank">
+						<a href="{{ url($image->file_path) }}" data-lightbox="mygallery">
 							<img src="{{ url($image->file_path) }}">
 						</a>
 					</li>
