@@ -10,7 +10,7 @@ class GalleryController extends Controller
 {
     public function viewGalleryList()
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::where('created_by',Auth::user()->id)->get();
         return view('gallery.gallery')
             ->with('galleries', $galleries);
     }
@@ -21,7 +21,7 @@ class GalleryController extends Controller
         $gallery = new Gallery;
 
         $gallery->name = $request->input('gallery_name');
-        $gallery->created_by = 1;
+        $gallery->created_by = Auth::user()->id;
         $gallery->published = 1;
         $gallery->save();
 
@@ -55,5 +55,26 @@ class GalleryController extends Controller
         ]);
 
         return $image;
+    }
+
+    public function deleteGallery($id)
+    {
+        $currentGallery = Gallery::findOrFail($id);
+
+        if($currentGallery->created_by != Auth::user()->id)
+        {
+            abort('403','Nie posiadasz wystarczających uprawnień');
+        }
+
+        $images = $currentGallery->images();
+
+        foreach ($currentGallery->images as $image){
+            unlink(public_path($image->file_path));
+        }
+
+        $currentGallery->images()->delete();
+        $currentGallery->delete();
+        return redirect()->back();
+
     }
 }

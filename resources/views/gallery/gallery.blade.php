@@ -30,7 +30,10 @@
                                     {{ $gallery->images()->count() }}
                                 </span>
                             </td>
-        					<td><a href="{{url('gallery/view/' . $gallery->id)}}"> Wyświetl</td>
+							<td>
+								<a href="{{url('gallery/view/' . $gallery->id)}}"> Wyświetl</a> /
+								<a href="{{url('gallery/delete/' . $gallery->id)}}"> Usuń</a>
+							</td>
         				</tr>
         				@endforeach
         			</tbody>

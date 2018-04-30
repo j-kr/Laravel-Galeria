@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -13,7 +13,7 @@
 
 	
 
-    <title>My Gallery</title>
+    <title>Galeria</title>
 </head>
 <body>
     <div class="container">
