@@ -12,4 +12,11 @@ class Gallery extends Model
 	{
 		return $this->hasMany('App\Image');
 	}
+
+
+	public function users()
+	{
+    return $this->belongsTo('App\User', 'created_by');
+	}
+
 }

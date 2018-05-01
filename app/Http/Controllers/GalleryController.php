@@ -5,13 +5,28 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class GalleryController extends Controller
 {
     public function viewGalleryList()
     {
+
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
         $galleries = Gallery::where('created_by',Auth::user()->id)->get();
         return view('gallery.gallery')
+            ->with('galleries', $galleries);
+    }
+
+    public function viewGalleryListAll()
+    {
+
+        $galleries = Gallery::all();
+
+        return view('gallery.gallery-all')
             ->with('galleries', $galleries);
     }
 

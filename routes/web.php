@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'GalleryController@viewGalleryListAll');
 
 Route::get('gallery/delete/{id}', 'GalleryController@deleteGallery');
 Route::get('gallery/list', 'GalleryController@viewGalleryList');
