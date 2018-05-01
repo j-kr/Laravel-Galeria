@@ -47,6 +47,11 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
+        if (!Auth::check()) {
+            return view('gallery.gallery-view-only')
+            ->with('gallery', $gallery);
+        }
+
         return view('gallery.gallery-view')
             ->with('gallery', $gallery);
     }
