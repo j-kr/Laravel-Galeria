@@ -21,6 +21,7 @@ class CreateImagesTable extends Migration
             $table->string('file_mime',50);
             $table->string('file_path');
             $table->integer('created_by');
+            $table->string('published');
             $table->timestamps();
         });
     }

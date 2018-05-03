@@ -27,12 +27,14 @@
         				<tr>
         					<td>{{$gallery->name}}
                                 <span style="float: right;">
-                                    {{ $gallery->images()->count() }}
+                                    Ilość zdjęć: {{ $gallery->images()->count() }} /
+                                    {{$gallery->published}}
                                 </span>
                             </td>
 							<td>
 								<a href="{{url('gallery/view/' . $gallery->id)}}"> Wyświetl</a> /
-								<a href="{{url('gallery/delete/' . $gallery->id)}}"> Usuń</a>
+								<a href="{{url('gallery/delete/' . $gallery->id)}}"> Usuń</a> /
+                                <a href="{{url('gallery/publish/' . $gallery->id)}}"> Przełącz widoczność</a>
 							</td>
         				</tr>
         				@endforeach

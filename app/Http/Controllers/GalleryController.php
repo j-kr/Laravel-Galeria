@@ -24,7 +24,8 @@ class GalleryController extends Controller
     public function viewGalleryListAll()
     {
 
-        $galleries = Gallery::all();
+        $galleries = Gallery::where('published', 'Publiczna')->get();
+
 
         return view('gallery.gallery-all')
             ->with('galleries', $galleries);
@@ -37,7 +38,7 @@ class GalleryController extends Controller
 
         $gallery->name = $request->input('gallery_name');
         $gallery->created_by = Auth::user()->id;
-        $gallery->published = 1;
+        $gallery->published = 'Publiczna';
         $gallery->save();
 
         return redirect()->back();
@@ -97,4 +98,24 @@ class GalleryController extends Controller
         return redirect()->back();
 
     }
+
+    public function publishGallery($id)
+    {
+        $currentGallery = Gallery::findOrFail($id);
+
+        $stan = $currentGallery->published;
+
+        if($stan == 'Publiczna'){
+            $currentGallery->published='Prywatna';
+            $currentGallery->save();
+        } 
+        else if($stan == 'Prywatna'){
+            $currentGallery->published='Publiczna';
+            $currentGallery->save();
+        }
+
+        return redirect()->back();
+    }
+
+
 }

@@ -14,6 +14,7 @@
 Route::get('/', 'GalleryController@viewGalleryListAll');
 
 Route::get('gallery/delete/{id}', 'GalleryController@deleteGallery');
+Route::get('gallery/publish/{id}', 'GalleryController@publishGallery');
 Route::get('gallery/list', 'GalleryController@viewGalleryList');
 Route::post('gallery/save', 'GalleryController@saveGallery');
 Route::get('gallery/view/{id}', 'GalleryController@viewGalleryPics');

@@ -33,7 +33,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/gallery/list') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     Galeria
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +58,21 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->id == '1')
+                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                        {{ __('Zarządzaj użytkownikami') }}
+                                    </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                        {{ __('Moje galerie') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                        {{ __('Konto') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

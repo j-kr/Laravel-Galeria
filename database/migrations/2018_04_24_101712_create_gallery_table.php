@@ -17,7 +17,7 @@ class CreateGalleryTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('created_by');
-            $table->integer('published');
+            $table->string('published');
             $table->timestamps();
         });
     }
