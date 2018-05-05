@@ -19,7 +19,13 @@ Route::get('gallery/list', 'GalleryController@viewGalleryList');
 Route::post('gallery/save', 'GalleryController@saveGallery');
 Route::get('gallery/view/{id}', 'GalleryController@viewGalleryPics');
 Route::post('image/do-upload', 'GalleryController@doImageUpload');
+Route::post('gallery/add-comment', 'GalleryController@addComment');
 Auth::routes();
+
+Route::get('users/list', 'UserController@viewUserList');
+Route::get('user/delete/{id}', 'UserController@deleteUser');
+Route::get('user/edit/{id}', 'UserController@editUser');
+Route::post('user/do-edit/{id}', 'UserController@doEdit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

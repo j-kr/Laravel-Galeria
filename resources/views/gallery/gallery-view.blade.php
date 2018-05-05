@@ -27,6 +27,7 @@
 		</div>
 	</div>
 
+	@if (Auth::user()->id == $gallery->created_by)
 	<div class="row">
 		<div class="col-md-12">
 			<form action="{{ url('image/do-upload') }}"
@@ -37,11 +38,45 @@
 			</form>
 		</div>
 	</div>
+	@endif
+	<br><br>
+
+	<h3>Komentarze</h3>
+
+	@foreach ($gallery->comments as $comment)
+	Ocena: {{ $comment->rate }}&nbsp Komentarz: {{ $comment->comment }}  <br>
+	Dodane przez: {{ $comment->users['name']}}
+	<hr>
+	@endforeach
+
+	@if (Auth::check())
+	<div class="row">
+		<div class="col-md-12">
+			<form action="{{ url('gallery/add-comment') }}" method="post" >
+				Dodaj komentarz:
+				<input type="text" name="comment">
+				Oceń:
+				<select name="rate" id="rate">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				
+
+				{{ csrf_field() }}
+				<input type="hidden" name="gallery_id" value="{{ $gallery->id }}">
+				<input type="submit" name="submit" value="Dodaj komentarz" class="btn btn-primary">
+			</form>
+		</div>
+	</div>
+	@endif
 
 	<br>
 	<div class="row">
 		<div class="col-md-12">
-			<a href="{{url('gallery/list')}}" class="btn btn-primary">Wróć</a>
+			<a href="{{url('/')}}" class="btn btn-primary">Wróć</a>
 		</div>
 	</div>
 @endsection

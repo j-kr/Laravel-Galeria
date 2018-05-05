@@ -73,6 +73,7 @@ class GalleryController extends Controller
             'file_mime' => $file->getClientMimeType(),
             'file_path' => 'gallery/images/' . $filename,
             'created_by' => Auth::user()->id,
+            'published' => 'Publiczna',
         ]);
 
         return $image;
@@ -117,5 +118,19 @@ class GalleryController extends Controller
         return redirect()->back();
     }
 
+    public function addComment(Request $request)
+    {
+        $gallery = Gallery::find($request->input('gallery_id'));
+        $user = Auth::user()->id; 
+
+        $comment = $gallery->comments()->create([
+            'gallery_id' => $request->input('gallery_id'),
+            'user_id' => $user,
+            'comment' => $request->input('comment'),
+            'rate' => $request->input('rate'),
+        ]);
+
+        return redirect()->back();
+    }
 
 }

@@ -16,7 +16,12 @@ class Gallery extends Model
 
 	public function users()
 	{
-    return $this->belongsTo('App\User', 'created_by');
+    	return $this->belongsTo('App\User', 'created_by');
+	}
+
+	public function comments()
+	{
+    	return $this->hasMany('App\Comment', 'gallery_id');
 	}
 
 }

@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $table = 'users';
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -27,4 +29,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function gallery()
+    {
+        return $this->hasMany('App\Gallery', 'created_by');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'id');
+    }
 }

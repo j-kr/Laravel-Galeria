@@ -61,7 +61,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->id == '1')
-                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                    <a class="dropdown-item" href="{{ url('/users/list') }}">
                                         {{ __('Zarządzaj użytkownikami') }}
                                     </a>
                                     @endif
