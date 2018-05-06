@@ -39,6 +39,7 @@ class GalleryController extends Controller
         $gallery->name = $request->input('gallery_name');
         $gallery->created_by = Auth::user()->id;
         $gallery->published = 'Publiczna';
+        $gallery->stats = 0;
         $gallery->save();
 
         return redirect()->back();
@@ -47,6 +48,9 @@ class GalleryController extends Controller
     public function viewGalleryPics($id)
     {
         $gallery = Gallery::findOrFail($id);
+
+        $gallery->stats++;
+        $gallery->save();
 
         if (!Auth::check()) {
             return view('gallery.gallery-view-only')

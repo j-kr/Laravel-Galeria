@@ -61,15 +61,15 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->id == '1')
-                                    <a class="dropdown-item" href="{{ url('/users/list') }}">
+                                    <a class="dropdown-item" href="{{ url('users/list') }}">
                                         {{ __('Zarządzaj użytkownikami') }}
                                     </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                    <a class="dropdown-item" href="{{ url('gallery/list') }}">
                                         {{ __('Moje galerie') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ url('/gallery/list') }}">
+                                    <a class="dropdown-item" href="{{ url('users/account/'. Auth::user()->id) }}">
                                         {{ __('Konto') }}
                                     </a>
 

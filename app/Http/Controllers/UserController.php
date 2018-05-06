@@ -37,12 +37,19 @@ class UserController extends Controller
         $user->email = $request->input('email_edit');
 
         $user->save();
-        return redirect('/users/list');
+        return redirect()->back();
     }
 
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);
+        $gallery = $user->gallery()->find($id);
+
+        foreach ($gallery->images as $image){
+            unlink(public_path($image->file_path));
+        }
+
+        $gallery->images()->delete();
         
         $user->gallery()->delete();
         $user->delete();
@@ -50,5 +57,15 @@ class UserController extends Controller
 
     }
 
+
+    public function viewUserAccount($id)
+    {
+
+        $user = User::find($id);
+
+
+        return view('user.user-view')
+            ->with('user', $user);
+    }
 
 }

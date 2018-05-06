@@ -27,6 +27,8 @@
         				<tr>
         					<td>{{$gallery->name}}
                                 <span style="float: right;">
+                                    Odwiedzono {{ $gallery->stats }} razy /
+                                    Ilość zdjęć: {{ $gallery->images()->count() }} /
                                     Stworzone przez: {{$gallery->users['name']}}
                                 </span>
                                 <br>

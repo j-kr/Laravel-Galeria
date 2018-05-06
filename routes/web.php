@@ -23,6 +23,7 @@ Route::post('gallery/add-comment', 'GalleryController@addComment');
 Auth::routes();
 
 Route::get('users/list', 'UserController@viewUserList');
+Route::get('users/account/{id}', 'UserController@viewUserAccount');
 Route::get('user/delete/{id}', 'UserController@deleteUser');
 Route::get('user/edit/{id}', 'UserController@editUser');
 Route::post('user/do-edit/{id}', 'UserController@doEdit');

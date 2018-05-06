@@ -17,6 +17,7 @@
 				<input type="text" name="email_edit" value="{{ $user->email }}"><br><br>
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="id_users" value="{{ $user->id }}">
+				<a href="{{ URL::previous()}}" class="btn btn-primary">Wróć</a>
 				<input type="submit" name="submit" class="btn btn_primary" value="Edytuj">
 		</div>
 	</div>

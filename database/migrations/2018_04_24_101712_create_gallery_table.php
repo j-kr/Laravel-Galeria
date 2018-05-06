@@ -18,6 +18,7 @@ class CreateGalleryTable extends Migration
             $table->string('name');
             $table->integer('created_by');
             $table->string('published');
+            $table->integer('stats');
             $table->timestamps();
         });
     }
