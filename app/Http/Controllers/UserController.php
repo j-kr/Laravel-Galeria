@@ -43,16 +43,17 @@ class UserController extends Controller
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);
-        $gallery = $user->gallery()->find($id);
+//        $gallery = $user->gallery()->find($id);
 
-        foreach ($gallery->images as $image){
-            unlink(public_path($image->file_path));
-        }
 
-        $gallery->images()->delete();
-        
-        $user->gallery()->delete();
-        $user->delete();
+//            foreach ($gallery->images as $image){
+//                unlink(public_path($image->file_path));
+//            }
+//
+//            $gallery->images()->delete();
+            $user->gallery()->delete();
+            $user->delete();
+
         return redirect()->back();
 
     }
